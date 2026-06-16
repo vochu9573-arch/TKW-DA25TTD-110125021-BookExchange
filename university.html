@@ -3,87 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tài Liệu Đại Học - CTP</title>
+    <title>Tài Liệu Đại Học — CTP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2D3748;
+            --accent-color: #3182CE;
+            --bg-light: #F7FAFC;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding-top: 80px;
+        }
+        .custom-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .sidebar-filter {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #E2E8F0;
+        }
+        .filter-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border-radius: 8px;
+            color: #475569;
+            text-decoration: none;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .filter-link:hover, .filter-link.active {
+            background-color: #F1F5F9;
+            color: var(--accent-color);
+        }
+        .nav-tabs-custom .nav-link {
+            border: none;
+            color: #718096;
+            font-weight: 600;
+            padding: 12px 20px;
+        }
+        .nav-tabs-custom .nav-link.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            background: transparent;
+        }
+        .doc-item-row {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+            padding: 24px;
+            transition: all 0.2s;
+        }
+        .doc-item-row:hover {
+            border-color: #CBD5E1;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+    </style>
 </head>
 <body>
 
-    <header class="bg-primary text-white py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="index.html" class="h3 text-white text-decoration-none">ctp</a>
-            <div class="d-flex align-items-center">
-                <input type="search" class="form-control me-2" placeholder="Tìm giáo trình, slide bài giảng...">
-                <button class="btn btn-light" type="submit">Tìm</button>
-            </div>
-            <div class="ms-3">
-                <a href="login.html" class="text-white text-decoration-none me-2">Đăng Nhập</a>
-                <a href="signup.html" class="btn btn-warning">Đăng Ký</a>
-            </div>
-        </div>
-    </header>
-
-    <section class="bg-light py-4 border-bottom">
+    <!-- Navbar -->
+    <nav class="navbar custom-nav fixed-top">
         <div class="container">
-            <h1 class="fw-bold"><i class="bi bi-mortarboard text-warning me-2"></i>Giáo Trình & Tài Liệu Đại Học</h1>
-            <p class="text-muted">Chia sẻ slide bài giảng, đề thi kết thúc học phần, tiểu luận các khối ngành Kỹ thuật, Kinh tế, Ngôn ngữ.</p>
-        </div>
-    </section>
-
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-warning text-dark fw-bold">Chuyên Ngành</div>
-                    <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action active bg-warning border-warning text-dark fw-bold">Tất cả</a>
-                        <a href="#" class="list-group-item list-group-item-action">Công Nghệ Thông Tin</a>
-                        <a href="#" class="list-group-item list-group-item-action">Kinh Tế - Quản Trị Kinh Doanh</a>
-                        <a href="#" class="list-group-item list-group-item-action">Kỹ Thuật Điện - Điện Tử</a>
-                        <a href="#" class="list-group-item list-group-item-action">Đại Cương (Toán Cao Cấp, Triết học)</a>
-                    </div>
-                </div>
+            <a href="index.html" class="navbar-brand fw-bold fs-3 text-dark" style="letter-spacing: -1px;">ctp.</a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="index.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3">Quay lại</a>
             </div>
+        </div>
+    </nav>
 
-            <div class="col-md-9">
-                <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <span class="badge bg-secondary mb-2">Đại Cương</span>
-                                <h5 class="card-title fw-bold">Giải Bài Tập Toán Cao Cấp A1</h5>
-                                <p class="card-text text-muted">Lời giải chi tiết các bài tập về vi phân, tích phân hàm một biến.</p>
-                                <div class="small text-muted mb-2">Trường: ĐH Bách Khoa</div>
+    <div class="container my-5">
+        <!-- Đường dẫn Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb small">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang chủ</a></li>
+                <li class="breadcrumb-item active">Đại học</li>
+            </ol>
+        </nav>
+
+        <!-- Tiêu đề trang con -->
+        <div class="mb-5">
+            <h1 class="fw-bold tracking-tight mb-2">Tài liệu học tập Đại học</h1>
+            <p class="text-muted">Hệ thống hóa tài liệu, bài giảng và đề cương thi kết thúc học phần.</p>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar bộ lọc môn học bên trái -->
+            <div class="col-lg-3 mb-4">
+    <div class="sidebar-filter shadow-sm">
+        <h6 class="fw-bold text-uppercase text-muted mb-3" style="font-size: 11px; letter-spacing: 1px;">Môn học đại cương</h6>
+        <nav class="nav flex-column">
+            <a href="#" class="filter-link active">Toán Cao Cấp (A1, A2)</a>
+            <a href="#" class="filter-link">Xác Suất Thống Kê</a>
+            <a href="#" class="filter-link">Vật Lý Đại Cương</a>
+            <a href="#" class="filter-link">Hóa Học Đại Cương</a>
+            <a href="#" class="filter-link">Triết Học Mác - Lênin</a>
+            <a href="#" class="filter-link">Pháp Luật Đại Cương</a>
+        </nav>
+    </div>
+</div>
+
+            <!-- Phân loại Đại cương / Chuyên ngành & Danh sách bài đăng bên phải -->
+            <div class="col-lg-9">
+                <!-- Tabs phân loại cốt lõi -->
+                <ul class="nav nav-tabs nav-tabs-custom mb-4 border-bottom">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-collection me-2"></i>Tài liệu Đại cương</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-cpu me-2"></i>Tài liệu Chuyên ngành</a>
+                    </li>
+                </ul>
+
+                <!-- Danh sách tài liệu thực tế -->
+                <div class="d-flex flex-column gap-3">
+                    <!-- Tài liệu 1 -->
+                    <div class="doc-item-row">
+                        <div class="row align-items-center">
+                            <div class="col-md-9">
+                                <span class="badge bg-light text-primary rounded-pill mb-2 px-2 py-1" style="font-size: 11px;">Toán Cao Cấp A1</span>
+                                <h5 class="fw-bold text-dark mb-2">Bài tập Vi phân & Tích phân hàm một biến có lời giải</h5>
+                                <p class="text-muted small mb-0">Tuyển tập 100 bài toán tích phân từ cơ bản đến nâng cao bám sát đề thi cuối kỳ.</p>
                             </div>
-                            <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
-                                <span><i class="bi bi-person"></i> Thầy Trần Văn K</span>
-                                <a href="#" class="btn btn-warning btn-sm text-dark fw-bold">Tải Slide</a>
+                            <div class="col-md-3 text-md-end mt-3 mt-md-0">
+                                <button class="btn btn-dark btn-sm rounded-pill px-3 w-100 mb-2">Xem chi tiết</button>
+                                <span class="text-muted small d-block"><i class="bi bi-download"></i> 845 lượt tải</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <span class="badge bg-dark mb-2">CNTT</span>
-                                <h5 class="card-title fw-bold">Giáo Trình Hệ Quản Trị Cơ Sở Dữ Liệu SQL</h5>
-                                <p class="card-text text-muted">Slide bài giảng lý thuyết kèm các bài thực hành truy vấn từ cơ bản đến nâng cao.</p>
-                                <div class="small text-muted mb-2">Trường: ĐH CNTT</div>
+
+                    <!-- Tài liệu 2 -->
+                    <div class="doc-item-row">
+                        <div class="row align-items-center">
+                            <div class="col-md-9">
+                                <span class="badge bg-light text-danger rounded-pill mb-2 px-2 py-1" style="font-size: 11px;">Vật Lý Đại Cương</span>
+                                <h5 class="fw-bold text-dark mb-2">Tóm tắt công thức Vật lý đại cương I (Cơ - Nhiệt)</h5>
+                                <p class="text-muted small mb-0">Hệ thống hóa toàn bộ công thức và sơ đồ tư duy động học, động lực học chất điểm.</p>
                             </div>
-                            <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between">
-                                <span><i class="bi bi-person"></i> Sinh viên khóa trước</span>
-                                <a href="#" class="btn btn-warning btn-sm text-dark fw-bold">Tải Slide</a>
+                            <div class="col-md-3 text-md-end mt-3 mt-md-0">
+                                <button class="btn btn-dark btn-sm rounded-pill px-3 w-100 mb-2">Xem chi tiết</button>
+                                <span class="text-muted small d-block"><i class="bi bi-download"></i> 1.1k lượt tải</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
-    <footer class="bg-primary text-white py-4">
-        <div class="container text-center">
-            <p class="mb-1">&copy; 2026 CTP Platform</p>
+    <!-- Footer -->
+    <footer class="py-5 border-top bg-white mt-5">
+        <div class="container text-center text-muted small">
+            <p>© 2026 CTP Platform. Nền tảng chia sẻ tài liệu mở.</p>
         </div>
     </footer>
+
 </body>
 </html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chia Sẻ Tài Liệu — CTP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2D3748;
+            --accent-color: #3182CE;
+            --bg-light: #F7FAFC;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding-top: 80px;
+        }
+        .custom-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .upload-container {
+            max-width: 700px;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #E2E8F0;
+        }
+        .dropzone-area {
+            border: 2px dashed #CBD5E1;
+            border-radius: 12px;
+            padding: 40px 20px;
+            background: #F8FAFC;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .dropzone-area:hover {
+            border-color: var(--accent-color);
+            background: #F0FDF4;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar custom-nav fixed-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand fw-bold fs-3 text-dark">ctp.</a>
+            <a href="index.html" class="btn btn-outline-secondary btn-sm rounded-pill">Hủy bỏ</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="upload-container mx-auto p-4 p-md-5 shadow-sm">
+            <div class="text-center mb-4">
+                <h3 class="fw-bold text-dark">Đóng góp tài liệu học tập</h3>
+                <p class="text-muted small">Chia sẻ tri thức của bạn giúp đỡ hàng ngàn học sinh, sinh viên khác tìm kiếm kiến thức tốt hơn.</p>
+            </div>
+
+            <form>
+                <!-- Vùng chọn file mẫu thiết kế hiện đại -->
+                <div class="mb-4 text-center">
+                    <label class="form-label d-block text-start fw-semibold mb-2">Tệp tài liệu (PDF, Word, Powerpoint, Zip)</label>
+                    <div class="dropzone-area">
+                        <i class="bi bi-cloud-arrow-up display-6 text-muted mb-2 d-block"></i>
+                        <span class="fw-semibold d-block text-dark">Kéo thả tệp tin của bạn vào đây</span>
+                        <span class="text-muted small">hoặc bấm để duyệt file từ máy tính</span>
+                        <input type="file" class="d-none" id="fileUpload">
+                    </div>
+                </div>
+
+                <!-- Tên tài liệu -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Tiêu đề hiển thị tài liệu</label>
+                    <input type="text" class="form-control rounded-3" placeholder="Ví dụ: Giáo trình Đại số tuyến tính Đại học Bách Khoa">
+                </div>
+
+                <div class="row">
+                    <!-- Phân loại cấp học -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Hệ đào tạo / Cấp học</label>
+                        <select class="form-select rounded-3">
+                            <option selected disabled>Chọn cấp học</option>
+                            <option>Đại học — Đại cương</option>
+                            <option>Đại học — Chuyên ngành</option>
+                            <option>Đề thi thử tốt nghiệp</option>
+                            <option>Cấp học khác</option>
+                        </select>
+                    </div>
+                    <!-- Phân loại môn học cụ thể -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Thuộc môn học</label>
+                        <select class="form-select rounded-3">
+                            <option selected disabled>Chọn môn học chính</option>
+                            <option>Toán học</option>
+                            <option>Vật lý</option>
+                            <option>Hóa học</option>
+                            <option>Ngữ văn</option>
+                            <option>Tiếng Anh / Ngôn ngữ</option>
+                            <option>Môn học chuyên ngành riêng</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Mô tả nội dung tóm tắt -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Tóm tắt nội dung chính (Mô tả sơ lược)</label>
+                    <textarea class="form-control rounded-3" rows="3" placeholder="Ghi chú ngắn gọn giúp người tải biết tài liệu này gồm những nội dung gì..."></textarea>
+                </div>
+
+                <!-- Nút xác nhận hành động gửi -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark rounded-pill py-2.5 fw-semibold">Xác nhận tải tài liệu lên</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
