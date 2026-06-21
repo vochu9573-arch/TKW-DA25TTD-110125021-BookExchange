@@ -23,27 +23,6 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #E2E8F0;
         }
-        .sidebar-filter {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid #E2E8F0;
-        }
-        .filter-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 12px;
-            border-radius: 8px;
-            color: #475569;
-            text-decoration: none;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-        .filter-link:hover, .filter-link.active {
-            background-color: #F1F5F9;
-            color: var(--accent-color);
-        }
         .nav-tabs-custom .nav-link {
             border: none;
             color: #718096;
@@ -55,22 +34,33 @@
             border-bottom: 2px solid var(--accent-color);
             background: transparent;
         }
-        .doc-item-row {
+        /* Thẻ tài liệu tối giản theo thẩm mỹ thực tế */
+        .doc-card {
             background: white;
-            border-radius: 16px;
             border: 1px solid #E2E8F0;
-            padding: 24px;
-            transition: all 0.2s;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
+            transition: all 0.3s ease;
         }
-        .doc-item-row:hover {
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.04);
             border-color: #CBD5E1;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+        .doc-thumb {
+            height: 140px;
+            background: #F1F5F9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            font-size: 2rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar custom-nav fixed-top">
         <div class="container">
             <a href="index.html" class="navbar-brand fw-bold fs-3 text-dark" style="letter-spacing: -1px;">ctp.</a>
@@ -81,7 +71,6 @@
     </nav>
 
     <div class="container my-5">
-        <!-- Đường dẫn Breadcrumb -->
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb small">
                 <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang chủ</a></li>
@@ -89,147 +78,97 @@
             </ol>
         </nav>
 
-        <!-- Tiêu đề trang con -->
         <div class="mb-5">
             <h1 class="fw-bold tracking-tight mb-2">Tài liệu học tập Đại học</h1>
             <p class="text-muted">Hệ thống hóa tài liệu, bài giảng và đề cương thi kết thúc học phần.</p>
         </div>
 
-        <div class="row">
-            <!-- Sidebar bộ lọc môn học bên trái -->
-           <!-- <div class="col-lg-3 mb-4">
-    <div class="sidebar-filter shadow-sm">
-        <h6 class="fw-bold text-uppercase text-muted mb-3" style="font-size: 11px; letter-spacing: 1px;">Môn học đại cương</h6>
-        <nav class="nav flex-column">
-            <a href="#" class="filter-link active">Toán Cao Cấp (A1, A2)</a>
-            <a href="#" class="filter-link">Xác Suất Thống Kê</a>
-            <a href="#" class="filter-link">Vật Lý Đại Cương</a>
-            <a href="#" class="filter-link">Hóa Học Đại Cương</a>
-            <a href="#" class="filter-link">Triết Học Mác - Lênin</a>
-            <a href="#" class="filter-link">Pháp Luật Đại Cương</a>
-        </nav>
-        
-    </div>
-</div>-->
+        <ul class="nav nav-tabs nav-tabs-custom mb-4 border-bottom">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"><i class="bi bi-collection me-2"></i>Tài liệu Đại cương</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="university2.html"><i class="bi bi-cpu me-2"></i>Tài liệu Chuyên ngành</a>
+            </li>
+        </ul>
 
-            <!-- Phân loại Đại cương / Chuyên ngành & Danh sách bài đăng bên phải -->
-            <div class="col-lg-9">
-                <!-- Tabs phân loại cốt lõi -->
-                <ul class="nav nav-tabs nav-tabs-custom mb-4 border-bottom">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="bi bi-collection me-2"></i>Tài liệu Đại cương</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="university2.html"><i class="bi bi-cpu me-2"></i>Tài liệu Chuyên ngành</a>
-                    </li>
-                </ul>
-
-                <section class="py-5 bg-white">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-end mb-4">
+        <div class="py-3">
+            <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
                     <span class="text-uppercase text-muted small fw-bold tracking-wider">Bộ sưu tập</span>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="card doc-card p-3">
+                    <h4 class="fw-bold m-0 mt-1">Tài liệu đại cương mới đăng</h4>
+                </div>
+                <select class="form-select form-select-sm w-auto rounded-3">
+                    <option>Mới nhất</option>
+                    <option>Tải nhiều nhất</option>
+                </select>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                
+                <div class="col">
+                    <div class="card doc-card p-3 h-100">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
-                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu đại cương</span>
+                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tư duy lý luận</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Logic học đại cương</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                        <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
                             <span class="text-muted small">Bởi: <strong class="text-dark">Huyền Trân</strong></span>
                             <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 1.2k</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card doc-card p-3">
+
+                <div class="col">
+                    <div class="card doc-card p-3 h-100">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
-                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu chuyên ngành</span>
-                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Toán học</span>
+                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Toán cao cấp A1 - Giải tích hàm một biến</h6>
+                        <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
                             <span class="text-muted small">Bởi: <strong class="text-dark">Minh Tuấn</strong></span>
-                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 1.2k</span>
+                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 3.4k</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card doc-card p-3">
+
+                <div class="col">
+                    <div class="card doc-card p-3 h-100">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
-                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu chuyên ngành</span>
-                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
-                            <span class="text-muted small">Bởi: <strong class="text-dark">Minh Tuấn</strong></span>
-                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 1.2k</span>
+                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Chính trị - Xã hội</span>
+                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình Triết học Mác - Lênin</h6>
+                        <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                            <span class="text-muted small">Bởi: <strong class="text-dark">Văn Nam</strong></span>
+                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 950</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card doc-card p-3">
+
+                <div class="col">
+                    <div class="card doc-card p-3 h-100">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
-                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu chuyên ngành</span>
-                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
-                            <span class="text-muted small">Bởi: <strong class="text-dark">Minh Tuấn</strong></span>
-                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 1.2k</span>
+                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Khoa học tự nhiên</span>
+                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Vật lý đại cương 1 (Cơ — Nhiệt)</h6>
+                        <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                            <span class="text-muted small">Bởi: <strong class="text-dark">Hoàng Long</strong></span>
+                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 2.1k</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card doc-card p-3">
-                        <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
-                        </div>
-                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu chuyên ngành</span>
-                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
-                            <span class="text-muted small">Bởi: <strong class="text-dark">Minh Tuấn</strong></span>
-                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 1.2k</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card doc-card p-3">
-                        <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
-                        </div>
-                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu chuyên ngành</span>
-                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
-                            <span class="text-muted small">Bởi: <strong class="text-dark">Minh Tuấn</strong></span>
-                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 1.2k</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card doc-card p-3">
-                        <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
-                        </div>
-                        <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu chuyên ngành</span>
-                        <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
-                            <span class="text-muted small">Bởi: <strong class="text-dark">Minh Tuấn</strong></span>
-                            <span class="badge bg-light text-dark rounded-pill px-2 py-1"><i class="bi bi-download"></i> 1.2k</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
-    </section>
+    </div>
     
-
-    <!-- Footer -->
     <footer class="py-5 border-top bg-white mt-5">
         <div class="container text-center text-muted small">
-            <p>© 2026 CTP Platform. Nền tảng chia sẻ tài liệu mở.</p>
+            <p class="mb-0">© 2026 CTP Platform. Nền tảng chia sẻ tài liệu mở.</p>
         </div>
     </footer>
 
