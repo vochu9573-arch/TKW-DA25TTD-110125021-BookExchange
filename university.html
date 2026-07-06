@@ -34,13 +34,13 @@
             border-bottom: 2px solid var(--accent-color);
             background: transparent;
         }
-        /* Thẻ tài liệu tối giản theo thẩm mỹ thực tế */
         .doc-card {
             background: white;
             border: 1px solid #E2E8F0;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         .doc-card:hover {
             transform: translateY(-4px);
@@ -85,7 +85,7 @@
 
         <ul class="nav nav-tabs nav-tabs-custom mb-4 border-bottom">
             <li class="nav-item">
-                <a class="nav-link active" href="#"><i class="bi bi-collection me-2"></i>Tài liệu Đại cương</a>
+                <a class="nav-link active" href="university.html"><i class="bi bi-collection me-2"></i>Tài liệu Đại cương</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="university2.html"><i class="bi bi-cpu me-2"></i>Tài liệu Chuyên ngành</a>
@@ -107,7 +107,7 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
                 
                 <div class="col">
-                    <div class="card doc-card p-3 h-100">
+                    <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="col">
-                    <div class="card doc-card p-3 h-100">
+                    <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="col">
-                    <div class="card doc-card p-3 h-100">
+                    <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
@@ -149,7 +149,7 @@
                 </div>
 
                 <div class="col">
-                    <div class="card doc-card p-3 h-100">
+                    <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
                             <i class="bi bi-file-earmark-pdf text-danger"></i>
                         </div>
