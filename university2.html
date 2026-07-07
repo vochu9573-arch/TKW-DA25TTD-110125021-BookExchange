@@ -34,6 +34,7 @@
             border-bottom: 2px solid var(--accent-color);
             background: transparent;
         }
+        /* THÈ TÀI LIỆU NÂNG CẤP ĐỒ HỌA */
         .doc-card {
             background: white;
             border: 1px solid #E2E8F0;
@@ -41,21 +42,29 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
             transition: all 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
         }
         .doc-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.04);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);
             border-color: #CBD5E1;
         }
         .doc-thumb {
-            height: 140px;
-            background: #F1F5F9;
+            height: 180px;
+            background: #EDF2F7;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94A3B8;
-            font-size: 2rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .doc-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .doc-card:hover .doc-thumb img {
+            transform: scale(1.06);
         }
         /* Lớp ẩn bổ trợ cho JavaScript lọc dữ liệu */
         .doc-item.is-hidden {
@@ -117,7 +126,7 @@
                 <div class="col doc-item" data-major="it">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-code text-primary"></i>
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Bìa Cấu trúc dữ liệu">
                         </div>
                         <span class="text-success small fw-bold text-uppercase mb-1" style="font-size: 11px;">Khối Kỹ thuật phần mềm</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
@@ -131,7 +140,7 @@
                 <div class="col doc-item" data-major="finance">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-graph-up-arrow text-warning"></i>
+                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80" alt="Bìa Kế toán doanh nghiệp">
                         </div>
                         <span class="text-warning small fw-bold text-uppercase mb-1" style="font-size: 11px; color: #b45309 !important;">Kinh tế phân tích</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Nguyên lý kế toán và Tài chính doanh nghiệp</h6>
@@ -145,7 +154,7 @@
                 <div class="col doc-item" data-major="mechanic">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-gear text-secondary"></i>
+                            <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0bc?auto=format&fit=crop&w=400&q=80" alt="Bìa Vi điều khiển">
                         </div>
                         <span class="text-secondary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Cơ điện tử</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Bài giảng Kỹ thuật vi điều khiển và PLC</h6>
@@ -159,7 +168,7 @@
                 <div class="col doc-item" data-major="law">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-briefcase text-info"></i>
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=400&q=80" alt="Bìa Luật dân sự">
                         </div>
                         <span class="text-info small fw-bold text-uppercase mb-1" style="font-size: 11px; color: #0369a1 !important;">Pháp lý học</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Tóm tắt trọng tâm Luật dân sự Việt Nam</h6>

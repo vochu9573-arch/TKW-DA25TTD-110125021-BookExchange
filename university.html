@@ -34,6 +34,7 @@
             border-bottom: 2px solid var(--accent-color);
             background: transparent;
         }
+        /* THẺ TÀI LIỆU NÂNG CẤP ĐỒ HỌA */
         .doc-card {
             background: white;
             border: 1px solid #E2E8F0;
@@ -41,21 +42,32 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
             transition: all 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
         }
         .doc-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.04);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);
             border-color: #CBD5E1;
         }
+        /* Khung chứa ảnh bìa được bo góc và tạo nền đổ mờ nhẹ */
         .doc-thumb {
-            height: 140px;
-            background: #F1F5F9;
+            height: 180px;
+            background: #EDF2F7;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94A3B8;
-            font-size: 2rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        /* Tối ưu hiển thị ảnh bìa bên trong khung */
+        .doc-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Giữ nguyên tỷ lệ ảnh, tự động lấp đầy khung không bị bóp méo */
+            transition: transform 0.5s ease;
+        }
+        /* Hiệu ứng zoom nhẹ ảnh bìa khi di chuột vào thẻ tài liệu */
+        .doc-card:hover .doc-thumb img {
+            transform: scale(1.06);
         }
     </style>
 </head>
@@ -109,7 +121,7 @@
                 <div class="col">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" alt="Bìa Logic học">
                         </div>
                         <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tư duy lý luận</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Logic học đại cương</h6>
@@ -123,7 +135,7 @@
                 <div class="col">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=400&q=80" alt="Bìa Toán cao cấp">
                         </div>
                         <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Toán học</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Toán cao cấp A1 - Giải tích hàm một biến</h6>
@@ -137,7 +149,7 @@
                 <div class="col">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
+                            <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=400&q=80" alt="Bìa Triết học">
                         </div>
                         <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Chính trị - Xã hội</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình Triết học Mác - Lênin</h6>
@@ -151,7 +163,7 @@
                 <div class="col">
                     <div class="card doc-card p-3 h-100" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=400&q=80" alt="Bìa Vật lý">
                         </div>
                         <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Khoa học tự nhiên</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Vật lý đại cương 1 (Cơ — Nhiệt)</h6>

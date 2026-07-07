@@ -80,28 +80,36 @@
             border-color: var(--accent-color);
             color: var(--accent-color);
         }
-        /* Thẻ tài liệu chân thực, bỏ bớt viền thô */
+        /* THẺ TÀI LIỆU SỬ DỤNG ẢNH BÌA THỰC TẾ */
         .doc-card {
             background: white;
-            border: none;
+            border: 1px solid #E2E8F0;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01), 0 2px 4px -1px rgba(0,0,0,0.01);
             transition: all 0.3s;
             cursor: pointer; /* Thêm con trỏ chuột dạng tay để biểu thị có thể click */
+            overflow: hidden;
         }
         .doc-card:hover {
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
         }
         .doc-thumb {
             height: 160px;
             background: #EDF2F7;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #A0AEC0;
-            font-size: 2rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .doc-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .doc-card:hover .doc-thumb img {
+            transform: scale(1.06);
         }
     </style>
 </head>
@@ -157,7 +165,7 @@
                 <div class="col-md-3">
                     <div class="card doc-card p-3" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" alt="Bìa Logic học đại cương">
                         </div>
                         <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu đại cương</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Logic học đại cương</h6>
@@ -171,7 +179,7 @@
                 <div class="col-md-3">
                     <div class="card doc-card p-3" onclick="window.location.href='detail.html'">
                         <div class="doc-thumb mb-3">
-                            <i class="bi bi-file-earmark-pdf text-danger"></i>
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Bìa cấu trúc dữ liệu">
                         </div>
                         <span class="text-primary small fw-bold text-uppercase mb-1" style="font-size: 11px;">Tài liệu chuyên ngành</span>
                         <h6 class="fw-bold text-dark text-truncate-2 mb-2">Giáo trình cấu trúc dữ liệu & giải thuật</h6>
@@ -181,7 +189,8 @@
                         </div>
                     </div>
                 </div>
-            </div> </div>
+            </div> 
+        </div>
     </section>
 
     <footer class="py-5 border-top bg-light">
