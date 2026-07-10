@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang Xử Lý Tài Liệu — CTP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2D3748;
+            --accent-color: #3182CE;
+            --bg-light: #F7FAFC;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding-top: 80px;
+        }
+        .custom-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .progress-container {
+            max-width: 600px;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #E2E8F0;
+        }
+        .progress {
+            height: 8px;
+            border-radius: 99px;
+            background-color: #E2E8F0;
+        }
+        .progress-bar {
+            background-color: var(--accent-color);
+            transition: width 0.1s linear;
+        }
+        /* Ẩn trạng thái hoàn thành lúc ban đầu */
+        #successState {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar custom-nav fixed-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand fw-bold fs-3 text-dark">ctp.</a>
+        </div>
+    </nav>
+
+    <div class="container my-5 py-5">
+        <div class="progress-container mx-auto p-4 p-md-5 text-center shadow-sm">
+            
+            <div id="uploadState">
+                <div class="spinner-border text-primary mb-4" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h4 class="fw-bold text-dark mb-2">Đang tải tài liệu của bạn lên...</h4>
+                <p class="text-muted small mb-4">Vui lòng không đóng trình duyệt hoặc làm mới trang.</p>
+                
+                <div class="progress mb-2">
+                    <div id="uploadProgressBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+                <span id="progressText" class="small fw-semibold text-secondary">0%</span>
+            </div>
+
+            <div id="successState" class="animate__animated animate__fadeIn">
+                <div class="display-4 text-success mb-3">
+                    <i class="bi bi-check-circle-fill"></i>
+                </div>
+                <h5 class="fw-bold text-dark lh-base mb-3">
+                    Đã tải tài liệu lên, tài liệu bạn chọn đang được tải về
+                </h5>
+                <p class="text-muted small mb-4">Bạn có thể quay lại trang chủ hoặc xem các tài liệu khác.</p>
+                <div class="d-flex gap-2 justify-content-center">
+                    <a href="index.html" class="btn btn-dark rounded-pill px-4 btn-sm fw-semibold">Về trang chủ</a>
+                    <a href="university.html" class="btn btn-outline-secondary rounded-pill px-4 btn-sm">Xem tài liệu khác</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.getElementById('uploadProgressBar');
+            const progressText = document.getElementById('progressText');
+            const uploadState = document.getElementById('uploadState');
+            const successState = document.getElementById('successState');
+            
+            let progress = 0;
+            
+            // Mô phỏng tiến trình tăng dần (chạy trong vòng 3 giây)
+            const interval = setInterval(() => {
+                progress += 2; // Tăng tiến trình
+                
+                if (progress <= 100) {
+                    progressBar.style.width = progress + '%';
+                    progressText.textContent = progress + '%';
+                }
+                
+                // Khi tiến trình đạt 100%
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Ẩn trạng thái đang tải lên và hiện thông báo thành công
+                    uploadState.style.display = 'none';
+                    successState.style.display = 'block';
+                }
+            }, 60); // Cập nhật sau mỗi 60ms để thanh chạy mượt mà
+        });
+    </script>
+
+</body>
+</html>
