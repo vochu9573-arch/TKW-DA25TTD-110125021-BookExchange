@@ -34,7 +34,6 @@
             border-bottom: 2px solid var(--accent-color);
             background: transparent;
         }
-        /* THẺ TÀI LIỆU NÂNG CẤP ĐỒ HỌA */
         .doc-card {
             background: white;
             border: 1px solid #E2E8F0;
@@ -49,7 +48,6 @@
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);
             border-color: #CBD5E1;
         }
-        /* Khung chứa ảnh bìa được bo góc và tạo nền đổ mờ nhẹ */
         .doc-thumb {
             height: 180px;
             background: #EDF2F7;
@@ -58,14 +56,12 @@
             position: relative;
             transition: all 0.3s ease;
         }
-        /* Tối ưu hiển thị ảnh bìa bên trong khung */
         .doc-thumb img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Giữ nguyên tỷ lệ ảnh, tự động lấp đầy khung không bị bóp méo */
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
-        /* Hiệu ứng zoom nhẹ ảnh bìa khi di chuột vào thẻ tài liệu */
         .doc-card:hover .doc-thumb img {
             transform: scale(1.06);
         }

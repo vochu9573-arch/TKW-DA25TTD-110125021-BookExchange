@@ -49,7 +49,6 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar custom-nav fixed-top">
         <div class="container">
             <a href="index.html" class="navbar-brand fw-bold fs-3 text-dark">ctp.</a>
@@ -64,7 +63,6 @@
                 <p class="text-muted small">Chia sẻ tri thức của bạn giúp đỡ hàng ngàn học sinh, sinh viên khác tìm kiếm kiến thức tốt hơn.</p>
             </div>
             <form onsubmit="event.preventDefault(); window.location.href='tientrinhtailen.html';"> <!-- Form upload tài liệu -->
-                <!-- Vùng chọn file mẫu thiết kế hiện đại -->
                 <div class="mb-4 text-center">
                     <label class="form-label d-block text-start fw-semibold mb-2">Tệp tài liệu (PDF, Word, Powerpoint, Zip)</label>
                     <div class="dropzone-area">
@@ -75,14 +73,12 @@
                     </div>
                 </div>
 
-                <!-- Tên tài liệu -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Tiêu đề hiển thị tài liệu</label>
                     <input type="text" class="form-control rounded-3" placeholder="Ví dụ: Giáo trình Đại số tuyến tính Đại học Trà Vinh 2023">
                 </div>
 
                 <div class="row">
-                    <!-- Phân loại cấp học -->
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-semibold">Đại cương hoặc Chuyên ngành</label>
                         <select class="form-select rounded-3">
@@ -91,7 +87,7 @@
                             <option>Đại học — Chuyên ngành</option>
                         </select>
                     </div>
-                    <!-- Phân loại môn học cụ thể -->
+
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-semibold">Thuộc ngành</label>
                         <select class="form-select rounded-3">
@@ -106,13 +102,11 @@
                     </div>
                 </div>
 
-                <!-- Mô tả nội dung tóm tắt -->
                 <div class="mb-4">
                     <label class="form-label fw-semibold">Tóm tắt nội dung chính (Mô tả sơ lược)</label>
                     <textarea class="form-control rounded-3" rows="3" placeholder="Ghi chú ngắn gọn giúp người tải biết tài liệu này gồm những nội dung gì..."></textarea>
                 </div>
 
-                <!-- Nút xác nhận hành động gửi -->
                 <div class="d-grid">
                     <button type="submit" class="btn btn-dark rounded-pill py-2.5 fw-semibold">Xác nhận tải tài liệu lên</button>
                 </div>
